@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Guess The Number - Ultimate</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#667eea" />
+
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #667eea, #764ba2);
+      --card: #ffffff;
+      --text: #222;
+      --btn: #667eea;
+      --btn-hover: #5a67d8;
+      --danger: #e53e3e;
+    }
+
+    body.dark {
+      --bg: linear-gradient(135deg, #0f172a, #020617);
+      --card: #0b1220;
+      --text: #e5e7eb;
+      --btn: #22c55e;
+      --btn-hover: #16a34a;
+      --danger: #ef4444;
+    }
+
+    body {
+      font-family: system-ui, Arial, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text);
+    }
+
+    .game-container {
+      background: var(--card);
+      padding: 22px;
+      border-radius: 16px;
+      width: min(92vw, 400px);
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 { margin: 0 0 6px; }
+
+    select, input {
+      width: 90%;
+      padding: 10px;
+      margin: 6px 0;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #cbd5f5;
+    }
+
+    button {
+      padding: 10px 16px;
+      margin: 6px 4px;
+      font-size: 14px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      background: var(--btn);
+      color: white;
+    }
+
+    button:hover { background: var(--btn-hover); }
+    .danger { background: var(--danger); }
+    .toggle { background: transparent; color: var(--text); border: 1px dashed #94a3b8; }
+
+    .info { font-size: 13px; opacity: 0.9; }
+    .stats { font-size: 12px; opacity: 0.9; margin-top: 6px; }
+
+    .leaderboard {
+      text-align: left;
+      font-size: 12px;
+      margin-top: 10px;
+      max-height: 120px;
+      overflow-y: auto;
+      border-top: 1px dashed #94a3b8;
+      padding-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+    <h1>🎯 Guess The Number</h1>
+
+    <button class="toggle" onclick="toggleDark()">🌙 Dark</button>
+
+    <p class="info">Mode</p>
+    <select id="mode" onchange="startGame()">
+      <option value="solo" selected>Solo</option>
+      <option value="two">2 Player (Turn-based)</option>
+    </select>
+
+    <p class="info">Difficulty</p>
+    <select id="difficulty" onchange="startGame()">
+      <option value="easy">Easy (1–50)</option>
+      <option value="medium">Medium (1–200)</option>
+      <option value="hard">Hard (1–500)</option>
+    </select>
+
+    <p id="turnText" class="info"></p>
+    <p id="rangeText" class="info"></p>
+
+    <input type="number" id="guessInput" placeholder="Enter your guess" />
+
+    <div>
+      <button onclick="checkGuess()">Guess</button>
+      <button class="danger" onclick="startGame()">Restart</button>
+    </div>
+
+    <p id="message"></p>
+    <p id="hint" class="info"></p>
+    <p id="attemptsText" class="info"></p>
+
+    <div class="stats">
+      🏆 Best: <span id="bestScore">-</span> |
+      ✅ Wins: <span id="wins">0</span> |
+      ❌ Losses: <span id="losses">0</span>
+    </div>
+
+    <div class="leaderboard">
+      <b>🏆 Leaderboard (This Device)</b>
+      <ol id="leaderboardList"></ol>
+    </div>
+  </div>
+
+  <script>
+    let secretNumber, maxNumber, attemptsLeft, attemptsUsed = 0;
+    let currentPlayer = 1;
+
+    const stats = JSON.parse(localStorage.getItem("guessStats")) || {
+      easy: { best: null, wins: 0, losses: 0 },
+      medium: { best: null, wins: 0, losses: 0 },
+      hard: { best: null, wins: 0, losses: 0 }
+    };
+
+    const leaderboard = JSON.parse(localStorage.getItem("guessLeaderboard")) || [];
+
+    function saveAll() {
+      localStorage.setItem("guessStats", JSON.stringify(stats));
+      localStorage.setItem("guessLeaderboard", JSON.stringify(leaderboard));
+    }
+
+    function updateLeaderboardUI() {
+      const list = document.getElementById("leaderboardList");
+      list.innerHTML = leaderboard
+        .slice(0, 5)
+        .map(item => `<li>${item.name} — ${item.attempts} tries (${item.diff})</li>`)
+        .join("") || "<li>No scores yet</li>";
+    }
+
+    function updateStatsUI() {
+      const d = difficulty.value;
+      bestScore.textContent = stats[d].best ?? "-";
+      wins.textContent = stats[d].wins;
+      losses.textContent = stats[d].losses;
+    }
+
+    function startGame() {
+      const diff = difficulty.value;
+      const mode = document.getElementById("mode").value;
+
+      if (diff === "easy") maxNumber = 50, attemptsLeft = 7;
+      if (diff === "medium") maxNumber = 200, attemptsLeft = 9;
+      if (diff === "hard") maxNumber = 500, attemptsLeft = 12;
+
+      secretNumber = Math.floor(Math.random() * maxNumber) + 1;
+      attemptsUsed = 0;
+      currentPlayer = 1;
+
+      rangeText.textContent = `Guess between 1 and ${maxNumber}`;
+      turnText.textContent = mode === "two" ? "👤 Player 1's turn" : "";
+      message.textContent = hint.textContent = "";
+      attemptsText.textContent = `Attempts left: ${attemptsLeft}`;
+      guessInput.value = "";
+      updateStatsUI();
+      updateLeaderboardUI();
+    }
+
+    function getHint(g) {
+      const d = Math.abs(secretNumber - g);
+      if (d <= 5) return "🔥 Very hot";
+      if (d <= 20) return "🌡️ Warm";
+      if (d <= 60) return "❄️ Cold";
+      return "🧊 Very cold";
+    }
+
+    function checkGuess() {
+      const g = Number(guessInput.value);
+      if (!g || g < 1 || g > maxNumber) return;
+
+      attemptsLeft--;
+      attemptsUsed++;
+
+      const mode = document.getElementById("mode").value;
+      const diff = difficulty.value;
+
+      if (g === secretNumber) {
+        message.textContent = `🎉 Player ${currentPlayer} wins!`;
+        stats[diff].wins++;
+        if (!stats[diff].best || attemptsUsed < stats[diff].best) stats[diff].best = attemptsUsed;
+
+        leaderboard.unshift({
+          name: mode === "two" ? `Player ${currentPlayer}` : "Solo",
+          attempts: attemptsUsed,
+          diff: diff
+        });
+        leaderboard.sort((a, b) => a.attempts - b.attempts);
+        leaderboard.splice(5);
+        saveAll();
+      } else {
+        message.textContent = g < secretNumber ? "📉 Too low!" : "📈 Too high!";
+        hint.textContent = "Hint: " + getHint(g);
+
+        if (mode === "two") {
+          currentPlayer = currentPlayer === 1 ? 2 : 1;
+          turnText.textContent = `👤 Player ${currentPlayer}'s turn`;
+        }
+
+        if (attemptsLeft === 0) {
+          message.textContent = `😵 No tries left! Number was ${secretNumber}`;
+          stats[diff].losses++;
+          saveAll();
+        }
+      }
+
+      attemptsText.textContent = `Attempts left: ${attemptsLeft}`;
+      guessInput.value = "";
+      updateStatsUI();
+      updateLeaderboardUI();
+    }
+
+    function toggleDark() {
+      document.body.classList.toggle("dark");
+    }
+
+    startGame();
+  </script>
+
+  <script>
+    // Service Worker (inline registration)
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+  </script>
+
+</body>
+</html>
