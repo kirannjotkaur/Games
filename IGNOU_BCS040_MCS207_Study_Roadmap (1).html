@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IGNOU BCS-040 & MCS-207 Study Roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap">
+<style>
+:root{--bg:#F3F4FA;--card:#fff;--ink:#171A33;--mut:#5B6080;--line:#E1E3F0;--pri:#4338CA;--pri2:#7C3AED;--e:#16A34A;--m:#D97706;--h:#DC2626;--eb:#E8F7EE;--mb:#FDF1DC;--hb:#FDE8E8;--disp:'Bricolage Grotesque',system-ui,sans-serif;--body:'Literata',Georgia,serif}
+@media(prefers-color-scheme:dark){:root{--bg:#0F1120;--card:#181B31;--ink:#ECEEFA;--mut:#9BA0C4;--line:#2A2E4D;--pri:#8B83FF;--pri2:#B794F6;--eb:#12301F;--mb:#38290F;--hb:#3A1818}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 var(--body);padding-bottom:60px}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px}
+.hero{background:linear-gradient(135deg,#312E81,#6D28D9 60%,#DB2777);color:#fff;padding:44px 0 70px}
+.hero h1{font:800 clamp(28px,6vw,46px)/1.1 var(--disp);margin:0 0 10px;letter-spacing:-.02em}
+.hero p{margin:0;max-width:560px;opacity:.9}
+.hero .pills{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}.hero .pills span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);border-radius:99px;padding:3px 12px;font:600 13px var(--disp)}
+nav{position:sticky;top:8px;z-index:5;max-width:420px;margin:-26px auto 20px;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:5px;display:flex;gap:4px;box-shadow:0 8px 24px rgba(40,30,120,.18)}
+nav button{flex:1;font:700 15px var(--disp);border:0;background:transparent;color:var(--mut);padding:10px 14px;border-radius:99px;cursor:pointer;transition:.2s}
+nav button.on{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff}
+nav button:focus-visible,summary:focus-visible{outline:3px solid var(--pri2);outline-offset:2px}
+h2{font:800 24px var(--disp);margin:38px 0 12px;letter-spacing:-.01em;display:flex;align-items:center;gap:10px}
+h2::before{content:"";width:6px;height:24px;border-radius:3px;background:linear-gradient(var(--pri),var(--pri2))}
+h3{font:700 16px var(--disp);margin:18px 0 6px;color:var(--pri)}
+.note{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--pri);border-radius:12px;padding:12px 16px;font-size:14px;color:var(--mut);margin:12px 0}
+details{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--pri);border-radius:14px;margin:10px 0;padding:0;box-shadow:0 2px 10px rgba(40,30,120,.06);overflow:hidden}
+details.de{border-left-color:var(--e)}details.dm{border-left-color:var(--m)}details.dh{border-left-color:var(--h)}
+summary{cursor:pointer;padding:14px 16px;font:700 16px var(--disp);display:flex;align-items:center;gap:10px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";margin-left:auto;font-size:22px;color:var(--mut);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details[open] summary{border-bottom:1px solid var(--line)}
+.un{background:var(--ink);color:var(--bg);border-radius:8px;padding:2px 9px;font-size:13px}
+.bdg{font-size:12px;border-radius:99px;padding:2px 10px}.de .bdg{background:var(--eb);color:var(--e)}.dm .bdg{background:var(--mb);color:var(--m)}.dh .bdg{background:var(--hb);color:var(--h)}
+.body{padding:14px 18px 8px}
+.body p{margin:6px 0 10px}
+.body ul{list-style:none;padding:0;margin:4px 0 12px;display:flex;flex-wrap:wrap;gap:6px}
+.body li{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:4px 11px;font-size:14px}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px;margin:8px 0 12px}
+.kv div{background:var(--bg);border-radius:10px;padding:8px 12px;font-size:14px}.kv b{display:block;font:700 13px var(--disp);color:var(--pri);margin-bottom:2px}
+ul.l{list-style:none;padding:0;margin:0}ul.l li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 12px;margin:5px 0;font-size:15px}
+ul.l.g li{border-left:5px solid var(--e)}ul.l.y li{border-left:5px solid var(--m)}ul.l.r li{border-left:5px solid var(--h)}
+.flow{display:flex;flex-wrap:wrap;gap:6px 0;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin:8px 0}
+.flow span{background:linear-gradient(135deg,var(--pri),var(--pri2));color:#fff;font:600 13px var(--disp);padding:5px 11px;border-radius:99px}
+.flow span:not(:last-child)::after{content:"→";position:absolute;margin-left:16px;color:var(--mut);font-size:15px}
+.flow span:not(:last-child){margin-right:34px;position:relative}
+ol{padding-left:22px}ol li{margin:6px 0}
+.ck{display:block;margin:2px 0}.ck input{accent-color:var(--pri);margin-right:6px;width:16px;height:16px;vertical-align:-3px}
+.ck.u{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin:8px 0 2px;font-size:14px}.ck.u b{font:700 15px var(--disp);display:block}.ck.u label{margin-right:10px;white-space:nowrap}
+.sub{margin-left:22px;font-size:14px;color:var(--mut)}
+@media print{nav{display:none}.hero{background:#333}details{break-inside:avoid}}
+</style></head><body>
+<div class="hero"><div class="wrap"><h1>IGNOU Study Roadmap</h1><p>Unit-by-unit difficulty, priorities, dependencies and revision plan for your two courses.</p><div class="pills"><span>BCS-040 · 14 units</span><span>MCS-207 · 16 units</span><span>Progress saved in browser</span></div></div></div><div class="wrap">
+<nav><button id="b0" class="on">BCS-040</button><button id="b1">MCS-207</button></nav><div class="note"><b>Sources & accuracy.</b> Block/unit titles come from the IGNOU eGyankosh listings (BCS-040: 4 blocks, 14 units; MCS-207: 4 blocks, 16 units). Sub-topics under each unit are the standard contents for that title; <b>confirm exact sub-headings against your Self Learning Material</b>, since I could not open unit PDFs. "Past-paper evidence" lines come only from papers I saw (BCS-040: Dec 2024, Jun 2025, Dec 2025; MCS-207: Dec 2021). Everything else is general advice. BCS-040 is Statistical Techniques (BCA revised; 50 marks, 2 hrs, Sections A and B). MCS-207 is Database Management Systems (PGDCA-New / BCA-New; Dec 2021 paper was 100 marks, 3 hrs). Check your own assignment booklet for the current pattern.</div>
+<div id="app"></div></div>
+<script>
+const D={e:"🟢 EASY",m:"🟡 MODERATE",h:"🔴 HARD"};
+// n,title,diff,why,topics,priority(1-3),exam,prereq,study
+const C=[{
+code:"BCS-040",name:"Statistical Techniques",
+ev:"Past-paper evidence: 'Probability distribution; Binomial vs Poisson' appeared as Q1 in both Jun 2025 and Dec 2025. Other seen items: standard error with finite population (n=50, N=200), one-way ANOVA table, paired t-test, chi-square independence, regression line with prediction, forecasting, sampling methods (SRS, systematic, advantages of sample survey), mean/variance/SD on a small data set.",
+blocks:[
+["Block 1: Statistics and Probability",[
+[1,"Descriptive Statistics","e","Mostly formulas and definitions applied to small data sets.",["Types of data, scales, frequency distributions, graphs","Mean, median, mode, quartiles, grouped-data median","Range, variance, standard deviation, coefficient of variation","Skewness and kurtosis (if in your SLM)"],1,"Numerical: compute mean/variance/SD, grouped median. Definitions: measures of central tendency and dispersion.","School maths","Learn formulas, do 5 numericals per measure. Common error: wrong class width or cumulative frequency in grouped median."],
+[2,"Probability Concepts","m","Needs clear counting and set thinking; wording of problems confuses.",["Sample space, events, axioms","Addition and multiplication rules","Conditional probability, independence","Bayes' theorem"],1,"Problem-based; short conceptual notes.","Set notation, counting","Draw tree diagrams. Practice conditional/Bayes problems until setup is automatic."],
+[3,"Probability Distributions","h","Many distributions, each with its own conditions, formulas and use cases.",["Random variables, expectation, variance","Binomial, Poisson, Normal (and any others in SLM)","Conditions of use, properties, approximations","Standard normal table use"],1,"Long answer + numericals. Binomial vs Poisson comparison has repeated in recent papers.","Unit 2","Split: discrete first, then normal. Make a one-page comparison sheet of conditions, mean, variance."]]],
+["Block 2: Statistical Inferences",[
+[4,"Sampling Distributions","m","Abstract idea (distribution of a statistic) before the formulas.",["Population vs sample, parameter vs statistic","Sampling distribution of the mean","Standard error, finite population correction","Central limit theorem, t / chi-square / F distributions (as covered)"],1,"Standard error numericals (seen in past paper). Define SE and CLT.","Unit 3 (normal)","Understand SE meaning first, then practise with and without FPC."],
+[5,"Estimation","m","Concept split (point vs interval) plus confidence-interval numericals.",["Point estimation, properties of good estimators","Interval estimation, confidence levels","CI for mean and proportion"],2,"Numerical CIs; define unbiasedness, consistency.","Unit 4","Memorize CI structure: estimate ± critical value × SE."],
+[6,"Tests of Significance","h","Hypothesis-testing logic plus choosing the right test.",["Null/alternative, Type I/II errors, level of significance, p-value","Z-test, t-test (one sample, two sample, paired)","Large vs small sample choice","Critical region, decision rule"],1,"Long answer: describe a test in detail (paired t seen). Numericals.","Units 3, 4, 5","Learn one fixed 5-step procedure and reuse it for every test."],
+[7,"Applications of Chi-Square in Problems with Categorical Data","m","Procedure is short but expected-frequency calculation errs easily.",["Goodness of fit","Independence of attributes (contingency tables)","Degrees of freedom, expected frequency"],1,"Numerical + describe test (independence seen in Jun 2025).","Unit 6 procedure","Practise 2x2 and larger tables; check df."]]],
+["Block 3: Applied Statistical Methods",[
+[8,"Analysis of Variance: One-Way Classification","m","Calculation-heavy but fully procedural.",["Between/within sums of squares","ANOVA table, F-ratio","Hypothesis and decision"],1,"Construct ANOVA table (seen in Jun 2025 and a 3-method problem in Dec 2024).","Units 1, 6","Fill the table skeleton by rote, then practise computing SS values."],
+[9,"Regression Analysis","m","Formulas are clear but arithmetic is long.",["Scatter diagram, correlation","Least-squares line, regression coefficients","Prediction"],1,"Numerical: fit line and predict (seen in Dec 2025).","Unit 1","Use a computation table; verify with means passing through the line."],
+[10,"Forecasting and Time Series Analysis","m","Many methods; mainly concept and trend calculation.",["Components of time series","Trend: moving average, least squares","Forecasting concept and models"],2,"Explain forecasting + one model with example (seen in Dec 2024).","Unit 9","Master one model fully (e.g. moving average)."],
+[11,"Statistical Quality Control","e","Descriptive with a few chart constructions.",["Quality control concepts, process vs product control","Control charts (variables, attributes)"],3,"Short notes, diagrams of control chart.","Unit 4 (SE idea)","Read once, learn chart limits formulas."]]],
+["Block 4: Sampling",[
+[12,"Simple Random Sampling and Systematic Sampling","e","Conceptual with simple formulas.",["Census vs sample survey, advantages","SRS with/without replacement, lottery and random number methods","Systematic and circular systematic sampling"],1,"Compare random vs non-random sampling; methods of SRS; systematic note (seen).","None","Quick read, memorize advantages and procedures."],
+[13,"Stratified Sampling","m","Allocation formulas add numerical load.",["Stratification, proportional/optimum allocation","Estimators and precision"],2,"Short/long answer; allocation problems.","Unit 12","Compare with SRS for when each is better."],
+[14,"Cluster Sampling and Multistage Sampling","e","Descriptive; compare against earlier methods.",["Cluster sampling","Multistage sampling","Comparison of designs"],3,"Short notes and comparisons.","Units 12-13","Make a comparison sheet of all designs."]]]
+],
+chains:["Descriptive stats (U1) → Probability (U2) → Distributions (U3) → Sampling distributions (U4) → Estimation (U5) → Tests (U6) → Chi-square (U7) → ANOVA (U8)","Descriptive stats (U1) → Regression (U9) → Time series/Forecasting (U10)","SRS (U12) → Stratified (U13) → Cluster/Multistage (U14)","Sampling distribution/SE (U4) → Control charts (U11)"],
+order:["Unit 1 → 2 → 3 (foundation)","Unit 4 → 5 → 6 → 7 (inference)","Unit 9 → 8 (regression before ANOVA gives you the sums-of-squares habit; ANOVA needs Unit 6 F-test logic)","Unit 12 → 13 → 14 (sampling, independent, can run in parallel with inference units as light reading)","Unit 10, 11 last","Then: past papers, formula sheet, final revision"],
+forget:"Distribution conditions and formulas, test procedures, ANOVA table layout, allocation formulas."
+},{
+code:"MCS-207",name:"Database Management Systems",
+ev:"Past-paper evidence (Dec 2021 only): advantages of DBMS, three-level architecture with diagram, index use, lossless join decomposition, 1NF/2NF/3NF with example, data recovery, transaction, relational vs object-oriented models, weak entity, and short notes on data mining, data warehousing, NoSQL and locking. Assignment sets (2024-25, 2025-26) also touch star schema, query optimization, log-based recovery with checkpoints, distributed and blockchain databases.",
+blocks:[
+["Block 1: The Basic Concepts",[
+[1,"Database Management System: An Introduction","e","Definitions and architecture, mostly descriptive.",["File system vs DBMS, advantages","Three-level architecture and data independence","Database users, DBA, components","Data models"],1,"Long answer + diagram: three-level architecture (seen).","None","Learn the architecture diagram; practise explaining data independence with an example."],
+[2,"Relational Database","m","Needs precise terms and operations.",["Relational model, keys (super, candidate, primary, foreign)","Relational algebra operations","Codd's rules / constraints as covered"],1,"Problem-based: algebra expressions. Definitions of keys.","Unit 1","Write algebra queries for sample schemas."],
+[3,"Entity Relationship Model","m","Design skill rather than memorization.",["Entities, attributes, relationships, cardinality","Weak entities, generalization/specialization","ER-to-relational mapping"],1,"Diagram-based design questions; weak entity (seen).","Units 1, 2","Draw ER diagrams for varied scenarios (e.g. library)."],
+[4,"File Organisation in DBMS","m","Many structures with trade-offs.",["Sequential, heap, hashed organisations","Indexing: primary, secondary, clustered","B-tree / B+ tree (as covered)"],2,"Explain use of index (seen); diagrams.","Unit 1","Compare structures by search/insert cost."]]],
+["Block 2: Database Normalisation and Database Query",[
+[5,"Database Integrity, Functional Dependency and Normalisation","h","Abstract reasoning on dependencies; no fixed template.",["Integrity constraints","Functional dependencies, closure, anomalies","1NF, 2NF, 3NF","Decomposition, lossless join, dependency preservation"],1,"Problem-based + long answer: 1NF-3NF with example, lossless join (seen).","Units 2, 3","Practise finding keys and closures, then normalize 5+ tables."],
+[6,"Higher Normal Forms","h","Builds on earlier forms with subtle definitions.",["BCNF","Multivalued dependency, 4NF","Join dependency, 5NF (as covered)"],2,"Problem-based and definitions.","Unit 5","Master BCNF first; give each form a one-line violation example."],
+[7,"Structured Query Language","m","Syntax is learnable but needs hands-on writing.",["DDL, DML, DCL","SELECT with WHERE, ORDER BY, GROUP BY","Constraints in SQL"],1,"Programming: write queries by hand.","Unit 2","Write every query on paper and test in a SQL tool."],
+[8,"Structured Query Language (Part-II)","m","Joins and nested queries cause mistakes.",["Joins","Subqueries, aggregate functions","Views"],1,"Programming: multi-table queries.","Unit 7","Practise join vs subquery on the same question."],
+[9,"Advanced SQL","m","Procedural SQL features; mostly syntax and idea.",["Triggers, stored procedures, cursors (as covered)","Embedded SQL","Advanced constructs"],2,"Short code and explanation.","Units 7-8","Learn one small example of each construct."]]],
+["Block 3: Database Transactions and Query Processing",[
+[10,"Transactions and Concurrency Management","h","Scheduling and locking logic requires careful reasoning.",["Transaction, ACID","Schedules, serializability","Locking, 2PL, deadlock","Timestamping (as covered)"],1,"Concepts + short notes; transaction and locking seen in Dec 2021.","Unit 1","Trace schedules step by step; learn ACID with examples."],
+[11,"Database Recovery and Security","m","Concept-heavy with log-based procedures.",["Failure types, log-based recovery, checkpoints","Shadow paging (as covered)","Security, authorization"],1,"Explain data recovery (seen); log-based recovery.","Unit 10","Walk through a log with a crash point."],
+[12,"Query Processing and Evaluation","m","Cost-based reasoning is abstract.",["Query processing steps","Query optimization, evaluation of operations","Cost estimation"],2,"Descriptive; optimization appears in assignment sets.","Units 4, 8","Understand parsing, optimization, execution as a pipeline."]]],
+["Block 4: Introduction to Advanced Database Models",[
+[13,"Object-Oriented Database","m","New paradigm compared to relational.",["OO concepts, OODBMS","ORDBMS, comparison with RDBMS"],2,"Comparison (relational vs OO seen).","Unit 2","Make a comparison sheet."],
+[14,"Data Warehousing and Data Mining","m","Wide terminology but little computation.",["Data warehouse, OLAP, star schema","Data mining tasks, ETL"],2,"Short notes (both seen in Dec 2021; star schema in assignment).","Unit 1","Learn definitions and diagrams."],
+[15,"NoSQL Database","e","Descriptive categories.",["Key-value, document, column, graph stores","CAP, BASE (as covered)"],2,"Short notes (seen).","Unit 2","Know one example per type."],
+[16,"Emerging Database Models","e","Overview-level reading.",["Distributed databases","Other emerging models (e.g. blockchain, as assignments touch)"],3,"Short notes.","Unit 1","Read once, define clearly."]]]
+],
+chains:["DBMS intro (U1) → Relational (U2) → ER model (U3) → FD & Normalisation (U5) → Higher NF (U6)","Relational (U2) → SQL (U7) → SQL II (U8) → Advanced SQL (U9)","DBMS intro (U1) → Transactions (U10) → Recovery (U11)","File organisation (U4) + SQL (U8) → Query processing (U12)","Relational (U2) → OO DB (U13) / NoSQL (U15) / Warehousing (U14) / Emerging (U16)"],
+order:["Unit 1 → 2 → 3","Unit 7 → 8 early alongside Unit 5 (practice SQL daily)","Unit 5 → 6","Unit 4 → 10 → 11 → 12","Unit 9","Units 13-16 as fast reading","Then: past papers, normalization drills, final revision"],
+forget:"Normal-form definitions, ACID, locking rules, recovery steps, SQL syntax."
+}];
+const PR={1:"🔥 PRIORITY 1: must master",2:"⚡ PRIORITY 2: important",3:"📖 PRIORITY 3: supporting"};
+const H={e:"Quick to master: mostly definitions/formulas; common mistake is skimming without a worked example.",m:"Needs real understanding: check prerequisites, practise, watch for confusion in setup and terminology.",h:"Deep study: break into small pieces, repeat, solve problems."};
+function render(i){const c=C[i];let h=`<h2>${c.code}: ${c.name}</h2><div class="note">${c.ev}</div><h2>Part 1: Unit-by-unit guide</h2>`;
+const all=[];c.blocks.forEach(b=>{h+=`<h3>${b[0]}</h3>`;b[1].forEach(u=>{all.push(u);
+h+=`<details class="d${u[2]}"><summary><span class="un">${u[0]}</span>${u[1]}<span class="bdg">${D[u[2]]}</span></summary><div class="body">
+<p>${u[3]} <i>${H[u[2]]}</i></p>
+<h3>Topics</h3><ul>${u[4].map(t=>`<li>${t}</li>`).join("")}</ul>
+<div class="kv"><div><b>Priority</b>${PR[u[5]]}</div><div><b>Prerequisites</b>${u[7]}</div><div><b>Exam preparation</b>${u[6]}</div><div><b>How to study</b>${u[8]}</div></div></div></details>`})});
+const g=(d)=>all.filter(u=>u[2]==d).map(u=>`<li>Unit ${u[0]} ${u[1]}</li>`).join("");
+h+=`<h2>Part 2: Difficulty map</h2><h3>🟢 Easy</h3><ul class="l g">${g("e")}</ul><h3>🟡 Moderate</h3><ul class="l y">${g("m")}</ul><h3>🔴 Hard</h3><ul class="l r">${g("h")}</ul><p class="note">Difficulty is relative workload, not a ranking. Labels are my judgement of content type; your own background will shift them.</p>`;
+const p=n=>all.filter(u=>u[5]==n).map(u=>`<li>Unit ${u[0]} ${u[1]}</li>`).join("");
+h+=`<h2>Part 3: Study priority</h2><h3>${PR[1]}</h3><ul class="l">${p(1)}</ul><h3>${PR[2]}</h3><ul class="l">${p(2)}</ul><h3>${PR[3]}</h3><ul class="l">${p(3)}</ul><h3>🔁 Revision-heavy</h3><p>${c.forget}</p>`;
+h+=`<h2>Part 4: Dependency chains</h2>${c.chains.map(ch=>`<div class="flow">${ch.split(" → ").map(x=>`<span>${x}</span>`).join("")}</div>`).join("")}`;
+h+=`<h2>Part 5: Master study order</h2><ol>${c.order.map(o=>`<li>${o}</li>`).join("")}</ol>
+<h2>Part 6: Revision system</h2><ul><li><b>First:</b> same day, rewrite key definitions/formulas.</li><li><b>Second:</b> at end of each block, redo 3 problems per unit.</li><li><b>Third:</b> 2-3 weeks before exam, one-page summaries per unit.</li><li><b>Final:</b> last week, past papers under timed conditions plus the forget-list above.</li></ul>
+<h2>Part 7: Master checklist</h2><p class="note">Tick: Learning, Completed, Practiced, Revised, Exam Ready (Not Started = nothing ticked). Saved in your browser if allowed.</p>`;
+c.blocks.forEach((b,bi)=>{h+=`<b>${b[0]}</b>`;b[1].forEach(u=>{h+=`<div class="ck u"><b>Unit ${u[0]}: ${u[1]}</b> `+["Learning","Completed","Practiced","Revised","Exam Ready"].map((s,k)=>`<label><input type="checkbox" data-k="${c.code}-${u[0]}-${k}">${s}</label> `).join("")+`</div>`+u[4].map((t,ti)=>`<label class="ck sub"><input type="checkbox" data-k="${c.code}-${u[0]}-t${ti}">${t}</label>`).join("")})});
+return h}
+const app=document.getElementById("app");
+function show(i){app.innerHTML=render(i);[0,1].forEach(j=>document.getElementById("b"+j).classList.toggle("on",j==i));
+app.querySelectorAll("input[data-k]").forEach(x=>{try{x.checked=localStorage.getItem(x.dataset.k)==="1"}catch(e){}x.onchange=()=>{try{localStorage.setItem(x.dataset.k,x.checked?"1":"0")}catch(e){}}});}
+b0.onclick=()=>show(0);b1.onclick=()=>show(1);show(0);
+</script></body></html>
